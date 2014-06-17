@@ -58,3 +58,29 @@ public class Main {
         } 
         catch(Exception ex){
             System.out.println("Błąd przy odczycie config.txt");}
+            
+                       //generowanie
+        
+		Proces[] t = new Proces[iloscprocesow];
+		//tablica procesów
+		for(int i = 0; i<iloscprocesow; i++)
+			t[i]= new Proces(iloscstron, i);
+		
+       //generowanie sekwencji
+		int ilosc[] = new int[iloscprocesow];//tablica wielkosci procesów
+		for(int i = 0; i<iloscprocesow; i++){
+			ilosc[i]= (int)(Math.random()*maxiloscodwolanprocesu);
+		System.out.print(ilosc[i]+" ");
+		}
+		System.out.print("\n");
+		
+		int iloscwygenerowanych[] = new int[iloscprocesow];//tablica iloci wygenerowanych
+        for(int i = 0; i<maxiloscodwolanprocesu*iloscprocesow; i++)
+		{
+			int proces =(int) (Math.random()*iloscprocesow);
+			if(iloscwygenerowanych[proces]<ilosc[proces])
+			t[proces].generuj((int)(Math.random()*maxiloscodwolanwsekwencji), odwolaniaprop, odwolaniaczest, odwolaniarown, odwolaniastref);
+			iloscwygenerowanych[proces]=t[proces].getIloscOdwolan();
+		}
+        //wyswietlenie
+        //System.out.println(odwolaniarown.toString());
