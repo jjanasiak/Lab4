@@ -1,0 +1,25 @@
+
+public class Ramka {
+	
+	private Strona s;
+	
+	public Ramka()
+	{
+		s=null;
+	}
+	
+	public void wstawStrone(Strona s)
+	{
+		this.s=s;
+	}
+	
+	public void usunStrone()
+	{
+		s=null;
+	}
+	
+	public Strona getStrona()
+	{
+		return s;
+	}
+}
